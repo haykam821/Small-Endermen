@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "io.github.haykam821.smallendermen.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [
+		"DefaultBiomeFeaturesMixin",
+		"PersistentProjectileOrTridentEntityMixin"
+	],
+	"client": [
+		"EndermanBlockFeatureRendererMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

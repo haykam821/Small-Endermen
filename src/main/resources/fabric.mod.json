@@ -1,0 +1,32 @@
+{
+	"schemaVersion": 1,
+	"id": "smallendermen",
+	"version": "${version}",
+	"name": "Small Endermen",
+	"description": "Adds smaller versions of Endermen to Minecraft.",
+	"authors": [
+		"haykam821"
+	],
+	"contact": {
+		"homepage": "https://github.com/haykam821/Small-Endermen#readme",
+		"issues": "https://github.com/haykam821/Small-Endermen/issues"
+	},
+	"entrypoints": {
+		"main": [
+			"io.github.haykam821.smallendermen.Main"
+		],
+		"client": [
+			"io.github.haykam821.smallendermen.ClientMain"
+		]
+	},
+	"mixins": [
+		"smallendermen.mixin.json"
+	],
+	"license": "MIT",
+	"icon": "assets/smallendermen/icon.png",
+	"depends": {
+		"fabricloader": ">=0.4.0",
+		"fabric-object-builder-api-v1": "*",
+		"fabric-renderer-registries-v1": "*"
+	}
+}

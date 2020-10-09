@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:entity",
+	"pools": [{
+		"entries": [{
+			"type": "loot_table",
+			"name": "minecraft:entities/enderman"
+		}]
+	}]
+}
