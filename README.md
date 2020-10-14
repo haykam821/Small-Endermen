@@ -16,4 +16,4 @@ Small Endermen requires the [Fabric modloader](https://fabricmc.net/use/) and [F
 
 ## Usage
 
-This mod adds small endermen, which are rarer than normal endermen. They are two blocks high, meaning they can reach the same places that players can.
+This mod adds small and tiny endermen, which are rarer than normal endermen. Small endermen are two blocks tall, while tiny endermen are around 1.5 blocks tall. As a result, they can reach the same places that players can.

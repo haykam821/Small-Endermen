@@ -1,4 +1,6 @@
 {
 	"entity.smallendermen.small_enderman": "Small Enderman",
-	"item.smallendermen.small_enderman_spawn_egg": "Small Enderman Spawn Egg"
+	"entity.smallendermen.tiny_enderman": "Tiny Enderman",
+	"item.smallendermen.small_enderman_spawn_egg": "Small Enderman Spawn Egg",
+	"item.smallendermen.tiny_enderman_spawn_egg": "Tiny Enderman Spawn Egg"
 }

@@ -15,6 +15,6 @@ public class PersistentProjectileOrTridentEntityMixin {
 	@Redirect(method = "onEntityHit", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;getType()Lnet/minecraft/entity/EntityType;", ordinal = 0))
 	private EntityType<?> getSmallEndermanProjectileCheckType(Entity entity) {
 		EntityType<?> type = entity.getType();
-		return type == Main.SMALL_ENDERMAN ? EntityType.ENDERMAN : type;
+		return type == Main.SMALL_ENDERMAN || type == Main.TINY_ENDERMAN ? EntityType.ENDERMAN : type;
 	}
 }
