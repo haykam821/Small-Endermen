@@ -1,9 +1,31 @@
 {
 	"type": "minecraft:entity",
-	"pools": [{
-		"entries": [{
-			"type": "loot_table",
-			"name": "minecraft:entities/enderman"
-		}]
-	}]
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 0,
+								"max": 1,
+								"type": "minecraft:uniform"
+							}
+						},
+						{
+							"function": "minecraft:looting_enchant",
+							"count": {
+								"min": 0,
+								"max": 1
+							}
+						}
+					],
+					"name": "smallendermen:tiny_ender_pearl"
+				}
+			]
+		}
+	]
 }

@@ -1,6 +1,7 @@
 {
 	"values": [
 		"minecraft:ender_pearl",
-		"smallendermen:small_ender_pearl"
+		"smallendermen:small_ender_pearl",
+		"smallendermen:tiny_ender_pearl"
 	]
 }
