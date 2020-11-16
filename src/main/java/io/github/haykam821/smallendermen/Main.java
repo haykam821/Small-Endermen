@@ -2,6 +2,7 @@ package io.github.haykam821.smallendermen;
 
 import io.github.haykam821.smallendermen.entity.SmallEndermanEntity;
 import io.github.haykam821.smallendermen.entity.TinyEndermanEntity;
+import io.github.haykam821.smallendermen.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -13,14 +14,12 @@ import net.minecraft.entity.SpawnRestriction;
 import net.minecraft.entity.mob.EndermanEntity;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
 
 public class Main implements ModInitializer {
-	private static final String MOD_ID = "smallendermen";
+	public static final String MOD_ID = "smallendermen";
 
 	// Entities
 	private static final Identifier SMALL_ENDERMAN_ID = new Identifier(MOD_ID, "small_enderman");
@@ -30,11 +29,10 @@ public class Main implements ModInitializer {
 	public static final EntityType<TinyEndermanEntity> TINY_ENDERMAN = createEndermanType(TinyEndermanEntity::new, 1.4f);
 
 	// Items
-	private static final Identifier SMALL_ENDERMAN_SPAWN_EGG_ID = new Identifier(MOD_ID, "small_enderman_spawn_egg");
-	public static final Item SMALL_ENDERMAN_SPAWN_EGG = new SpawnEggItem(SMALL_ENDERMAN, 0x2C2C2C, 0x1D1D1D, new Item.Settings().group(ItemGroup.MISC));
-
-	private static final Identifier TINY_ENDERMAN_SPAWN_EGG_ID = new Identifier(MOD_ID, "tiny_enderman_spawn_egg");
-	public static final Item TINY_ENDERMAN_SPAWN_EGG = new SpawnEggItem(TINY_ENDERMAN, 0x3C3C3C, 0x2C2C2C, new Item.Settings().group(ItemGroup.MISC));
+	@Deprecated
+	public static final Item SMALL_ENDERMAN_SPAWN_EGG = ModItems.SMALL_ENDERMAN_SPAWN_EGG.getItem();
+	@Deprecated
+	public static final Item TINY_ENDERMAN_SPAWN_EGG = ModItems.TINY_ENDERMAN_SPAWN_EGG.getItem();
 
 	@Override
 	public void onInitialize() {
@@ -46,8 +44,7 @@ public class Main implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(TINY_ENDERMAN, EndermanEntity.createEndermanAttributes());
 
 		// Items
-		Registry.register(Registry.ITEM, SMALL_ENDERMAN_SPAWN_EGG_ID, SMALL_ENDERMAN_SPAWN_EGG);
-		Registry.register(Registry.ITEM, TINY_ENDERMAN_SPAWN_EGG_ID, TINY_ENDERMAN_SPAWN_EGG);
+		ModItems.register();
 	}
 
 	private static <T extends EndermanEntity> EntityType<T> createEndermanType(EntityFactory<T> factory, float height) {
