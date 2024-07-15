@@ -2,6 +2,7 @@ package io.github.haykam821.smallendermen.entity.render;
 
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.entity.model.EndermanEntityModel;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.math.MathHelper;
 
@@ -84,5 +85,9 @@ public class SmallEndermanEntityModel<T extends LivingEntity> extends EndermanEn
 		// Legs
 		this.rightLeg.pitch = MathHelper.cos(limbAngle * 0.6662f) * 1.4f * limbDistance / limbVelocity;
 		this.leftLeg.pitch = MathHelper.cos(limbAngle * 0.6662f + (float) Math.PI) * 1.4f * limbDistance / limbVelocity;
+	}
+
+	public void transformBlockMatrices(MatrixStack matrices, double x) {
+		matrices.translate(x, 0.5, -0.4);
 	}
 }

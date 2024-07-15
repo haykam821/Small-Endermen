@@ -1,6 +1,7 @@
 package io.github.haykam821.smallendermen.entity.render;
 
 import net.minecraft.client.model.ModelPart;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 
 public class TinyEndermanEntityModel<T extends LivingEntity> extends SmallEndermanEntityModel<T> {
@@ -44,5 +45,11 @@ public class TinyEndermanEntityModel<T extends LivingEntity> extends SmallEnderm
 
 		this.head.pivotY = 8;
 		this.helmet.pivotY = 8;
+	}
+
+	@Override
+	public void transformBlockMatrices(MatrixStack matrices, double x) {
+		matrices.scale(0.8f, 0.8f, 0.8f);
+		matrices.translate(x, 1, -0.3);
 	}
 }
