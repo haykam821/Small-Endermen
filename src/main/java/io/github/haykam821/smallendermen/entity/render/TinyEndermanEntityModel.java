@@ -45,6 +45,8 @@ public class TinyEndermanEntityModel<T extends LivingEntity> extends SmallEnderm
 
 		this.head.pivotY = 8;
 		this.helmet.pivotY = 8;
+
+		this.applyAngryPivot();
 	}
 
 	@Override

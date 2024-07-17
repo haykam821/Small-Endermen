@@ -61,9 +61,7 @@ public class SmallEndermanEntityModel<T extends LivingEntity> extends EndermanEn
 		}
 		this.helmet.copyPositionAndRotation(this.head);
 
-		if (this.angry) {
-			this.head.pivotY -= 5;
-		}
+		this.applyAngryPivot();
 
 		if (limbVelocity < 1) {
 			limbVelocity = 1;
@@ -85,6 +83,12 @@ public class SmallEndermanEntityModel<T extends LivingEntity> extends EndermanEn
 		// Legs
 		this.rightLeg.pitch = MathHelper.cos(limbAngle * 0.6662f) * 1.4f * limbDistance / limbVelocity;
 		this.leftLeg.pitch = MathHelper.cos(limbAngle * 0.6662f + (float) Math.PI) * 1.4f * limbDistance / limbVelocity;
+	}
+
+	protected void applyAngryPivot() {
+		if (this.angry) {
+			this.head.pivotY -= 5;
+		}
 	}
 
 	public void transformBlockMatrices(MatrixStack matrices, double x) {
