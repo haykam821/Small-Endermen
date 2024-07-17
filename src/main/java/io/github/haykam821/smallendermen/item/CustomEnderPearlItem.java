@@ -34,7 +34,7 @@ public class CustomEnderPearlItem extends EnderPearlItem {
 	private void spawnEntity(World world, PlayerEntity user, ItemStack stack) {
 		EnderPearlEntity entity = new EnderPearlEntity(world, user);
 		entity.setItem(stack);
-		entity.setProperties(user, user.pitch, user.yaw, 0, this.throwSpeed, 1);
+		entity.setProperties(user, user.getPitch(), user.getYaw(), 0, this.throwSpeed, 1);
 		world.spawnEntity(entity);
 	}
 
@@ -53,7 +53,7 @@ public class CustomEnderPearlItem extends EnderPearlItem {
 			this.spawnEntity(world, user, stack);
 		}
 
-		if (!user.abilities.creativeMode) {
+		if (!user.getAbilities().creativeMode) {
 			stack.decrement(1);
 		}
 		return TypedActionResult.success(stack, world.isClient());

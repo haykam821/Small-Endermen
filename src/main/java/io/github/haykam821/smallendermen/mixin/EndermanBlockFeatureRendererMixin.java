@@ -21,10 +21,8 @@ public abstract class EndermanBlockFeatureRendererMixin extends FeatureRenderer<
 
 	@Redirect(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/math/MatrixStack;translate(DDD)V", ordinal = 0))
 	private void offsetBlockLess(MatrixStack matrices, double x, double y, double z, MatrixStack matrices2, VertexConsumerProvider vertexConsumers, int light, EndermanEntity entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-		EndermanEntityModel<EndermanEntity> model = this.getContextModel();
-
-		if (model instanceof SmallEndermanEntityModel) {
-			((SmallEndermanEntityModel<EndermanEntity>) model).transformBlockMatrices(matrices, x);
+		if (this.getContextModel() instanceof SmallEndermanEntityModel model) {
+			model.transformBlockMatrices(matrices, x);
 		} else {
 			matrices.translate(x, y, z);
 		}

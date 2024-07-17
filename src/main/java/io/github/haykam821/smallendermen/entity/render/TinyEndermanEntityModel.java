@@ -1,42 +1,20 @@
 package io.github.haykam821.smallendermen.entity.render;
 
+import net.minecraft.client.model.Dilation;
+import net.minecraft.client.model.ModelData;
 import net.minecraft.client.model.ModelPart;
+import net.minecraft.client.model.ModelPartBuilder;
+import net.minecraft.client.model.ModelPartData;
+import net.minecraft.client.model.ModelTransform;
+import net.minecraft.client.model.TexturedModelData;
+import net.minecraft.client.render.entity.model.BipedEntityModel;
+import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 
 public class TinyEndermanEntityModel<T extends LivingEntity> extends SmallEndermanEntityModel<T> {
-	public TinyEndermanEntityModel() {
-		super();
-
-		this.head = new ModelPart(this, 0, 0);
-		this.head.addCuboid(-4, -7, -4, 8, 8, 8);
-		this.head.setPivot(0, 7, 0);
-
-		this.helmet = new ModelPart(this, 0, 16);
-		this.helmet.addCuboid(-4, -7, -4, 8, 8, 8, -0.5f);
-		this.helmet.setPivot(0, 7, 0);
-
-		this.torso = new ModelPart(this, 32, 16);
-		this.torso.addCuboid(-4, 7, -2, 8, 8, 4);
-		this.torso.setPivot(0, 0, 0);
-
-		this.rightArm = new ModelPart(this, 56, 0);
-		this.rightArm.addCuboid(-1, 0, -1, 2, 8, 2, 0);
-		this.rightArm.setPivot(-5, 8, 0);
-
-		this.leftArm = new ModelPart(this, 56, 0);
-		this.leftArm.mirror = true;
-		this.leftArm.addCuboid(-1, 0, -1, 2, 8, 2, 0);
-		this.leftArm.setPivot(5, 8, 0);
-
-		this.rightLeg = new ModelPart(this, 56, 0);
-		this.rightLeg.addCuboid(-1, 0, -1, 2, 13, 2, 0);
-		this.rightLeg.setPivot(-2, 12, 0);
-
-		this.leftLeg = new ModelPart(this, 56, 0);
-		this.leftLeg.mirror = true;
-		this.leftLeg.addCuboid(-1, 0, -1, 2, 13, 2, 0);
-		this.leftLeg.setPivot(2, 12, 0);
+	public TinyEndermanEntityModel(ModelPart modelPart) {
+		super(modelPart);
 	}
 
 	@Override
@@ -44,7 +22,7 @@ public class TinyEndermanEntityModel<T extends LivingEntity> extends SmallEnderm
 		super.setAngles(entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
 
 		this.head.pivotY = 8;
-		this.helmet.pivotY = 8;
+		this.hat.pivotY = 8;
 
 		this.applyAngryPivot();
 	}
@@ -53,5 +31,20 @@ public class TinyEndermanEntityModel<T extends LivingEntity> extends SmallEnderm
 	public void transformBlockMatrices(MatrixStack matrices, double x) {
 		matrices.scale(0.8f, 0.8f, 0.8f);
 		matrices.translate(x, 1, -0.3);
+	}
+
+	public static TexturedModelData getTexturedModelData() {
+		ModelData modelData = BipedEntityModel.getModelData(Dilation.NONE, 0);
+		ModelPartData modelPartData = modelData.getRoot();
+
+		modelPartData.addChild(EntityModelPartNames.HAT, ModelPartBuilder.create().uv(0, 16).cuboid(-4, -7, -4, 8, 8, 8, new Dilation(-0.5f)), ModelTransform.pivot(0, 7, 0));
+		modelPartData.addChild(EntityModelPartNames.HEAD, ModelPartBuilder.create().uv(0, 0).cuboid(-4, -7, -4, 8, 8, 8), ModelTransform.pivot(0, 7, 0));
+		modelPartData.addChild(EntityModelPartNames.BODY, ModelPartBuilder.create().uv(32, 16).cuboid(-4, 7, -2, 8, 8, 4), ModelTransform.NONE);
+		modelPartData.addChild(EntityModelPartNames.RIGHT_ARM, ModelPartBuilder.create().uv(56, 0).cuboid(-1, 0, -1, 2, 8, 2), ModelTransform.pivot(-5, 8, 0));
+		modelPartData.addChild(EntityModelPartNames.LEFT_ARM, ModelPartBuilder.create().uv(56, 0).mirrored().cuboid(-1, 0, -1, 2, 8, 2), ModelTransform.pivot(5, 8, 0));
+		modelPartData.addChild(EntityModelPartNames.RIGHT_LEG, ModelPartBuilder.create().uv(56, 0).cuboid(-1, 0, -1, 2, 13, 2), ModelTransform.pivot(-2, 12, 0));
+		modelPartData.addChild(EntityModelPartNames.LEFT_LEG, ModelPartBuilder.create().uv(56, 0).mirrored().cuboid(-1, 0, -1, 2, 13, 2), ModelTransform.pivot(2, 12, 0));
+
+		return TexturedModelData.of(modelData, 64, 32);
 	}
 }

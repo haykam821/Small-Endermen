@@ -22,10 +22,10 @@ public class Main implements ModInitializer {
 	public static final String MOD_ID = "smallendermen";
 
 	// Entities
-	private static final Identifier SMALL_ENDERMAN_ID = new Identifier(MOD_ID, "small_enderman");
+	protected static final Identifier SMALL_ENDERMAN_ID = new Identifier(MOD_ID, "small_enderman");
 	public static final EntityType<SmallEndermanEntity> SMALL_ENDERMAN = createEndermanType(SmallEndermanEntity::new, 1.8f);
 
-	private static final Identifier TINY_ENDERMAN_ID = new Identifier(MOD_ID, "tiny_enderman");
+	protected static final Identifier TINY_ENDERMAN_ID = new Identifier(MOD_ID, "tiny_enderman");
 	public static final EntityType<TinyEndermanEntity> TINY_ENDERMAN = createEndermanType(TinyEndermanEntity::new, 1.4f);
 
 	// Items
