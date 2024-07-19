@@ -10,7 +10,8 @@
 	],
 	"contact": {
 		"homepage": "https://github.com/haykam821/Small-Endermen#readme",
-		"issues": "https://github.com/haykam821/Small-Endermen/issues"
+		"issues": "https://github.com/haykam821/Small-Endermen/issues",
+		"sources": "https://github.com/haykam821/Small-Endermen"
 	},
 	"entrypoints": {
 		"main": [
