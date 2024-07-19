@@ -23,6 +23,13 @@
 	"mixins": [
 		"smallendermen.mixin.json"
 	],
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.discord": "https://haykam.com/links/discord"
+			}
+		}
+	},
 	"license": "MIT",
 	"icon": "assets/smallendermen/icon.png",
 	"depends": {
